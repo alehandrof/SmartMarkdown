@@ -68,5 +68,17 @@
 			[
 				{"key": "selector", "operator": "equal", "operand": "text.html.markdown"}
 			]
+	},
+	{ "keys": ["tab"], "command": "indent", "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "markup.list" }
+		]
+	},
+	{ "keys": ["shift+tab"], "command": "unindent", "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "markup.list" },
+			// Should we enable the following setting check?
+			// { "key": "setting.shift_tab_unindent", "operator": "equal", "operand": true }
+		]
 	}
 ]
