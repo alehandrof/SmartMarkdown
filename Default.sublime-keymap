@@ -71,11 +71,13 @@
 	},
 	{ "keys": ["tab"], "command": "indent", "context":
 		[
+			{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*([-\\+\\*]|#\\.|(\\d+|[A-z]|[IVXLCDM]+|[ivxlcdm]+)[\\.\\)]|\\((\\d+|[A-z]|[IVXLCDM]+|[ivxlcdm]+)\\)|\\(\\@[\\w\\-]*\\))\\s+" }
 		]
 	},
 	{ "keys": ["shift+tab"], "command": "unindent", "context":
 		[
+			{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*([-\\+\\*]|#\\.|(\\d+|[A-z]|[IVXLCDM]+|[ivxlcdm]+)[\\.\\)]|\\((\\d+|[A-z]|[IVXLCDM]+|[ivxlcdm]+)\\)|\\(\\@[\\w\\-]*\\))\\s+" }
 			// Should we enable the following setting check?
 			// { "key": "setting.shift_tab_unindent", "operator": "equal", "operand": true }
