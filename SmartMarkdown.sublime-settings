@@ -7,5 +7,9 @@
     "pandoc_args": [],
     "pandoc_args_pdf": [],
     "pandoc_args_html": [],
-    "pandoc_args_docx": []
+    "pandoc_args_docx": [],
+
+    /* If true empty bullet will be converted into whitespaces when pressing enter,
+    if false empty bullet will be erased completely */
+    "empty_list_bullet": false
 }

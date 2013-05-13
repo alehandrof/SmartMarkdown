@@ -33,11 +33,15 @@ class SmartListCommand(sublime_plugin.TextCommand):
 
             match = EMPTY_LIST_PATTERN.match(before_point_content)
             if match:
-                insert_text = match.group(1) + \
-                              re.sub(r'\S', ' ', str(match.group(2))) + \
-                              match.group(3)
-                self.view.erase(edit, before_point_region)
-                self.view.insert(edit, line_region.a, insert_text)
+                settings = sublime.load_settings("SmartMarkdown.sublime-settings")
+                if settings.get("empty_list_bullet"):
+                    insert_text = match.group(1) + \
+                                  re.sub(r'\S', ' ', str(match.group(2))) + \
+                                  match.group(3)
+                    self.view.erase(edit, before_point_region)
+                    self.view.insert(edit, line_region.a, insert_text)
+                else:
+                    self.view.erase(edit, before_point_region)
                 break
 
             match = ORDER_LIST_PATTERN.match(before_point_content)
@@ -60,8 +64,7 @@ class SmartListCommand(sublime_plugin.TextCommand):
                 self.view.insert(edit, region.a, "\n" + insert_text)
                 break
 
-            self.view.insert(edit, region.a, '\n' + \
-                             re.sub(r'\S+\s*', '', before_point_content))
+            self.view.insert(edit, region.a, '\n')
         self.adjust_view()
 
     def adjust_view(self):
