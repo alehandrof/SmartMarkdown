@@ -60,8 +60,15 @@ class SmartListCommand(sublime_plugin.TextCommand):
 
             match = NONLIST_PATTERN.match(before_point_content)
             if match:
-                insert_text = match.group(1) + match.group(2)
-                self.view.insert(edit, region.a, "\n" + insert_text)
+                current_line = self.view.line(region.a)
+                prev_line = self.view.line(current_line.a - 1)
+                empty_nonlist = match.group(1) + match.group(2)
+                if (self.view.substr(prev_line) == empty_nonlist) and (self.view.substr(current_line) == empty_nonlist):
+                    self.view.replace(edit, current_line, '')
+                    self.view.replace(edit, prev_line, '')
+                else:
+                    insert_text = match.group(1) + match.group(2)
+                    self.view.insert(edit, region.a, "\n" + insert_text)
                 break
 
             self.view.insert(edit, region.a, '\n')
