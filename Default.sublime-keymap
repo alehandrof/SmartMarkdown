@@ -72,6 +72,7 @@
 	{ "keys": ["tab"], "command": "indent", "context":
 		[
 			{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*([-\\+\\*]|#\\.|(\\d+|[A-z]|[IVXLCDM]+|[ivxlcdm]+)[\\.\\)]|\\((\\d+|[A-z]|[IVXLCDM]+|[ivxlcdm]+)\\)|\\(\\@[\\w\\-]*\\))\\s+" }
 		]
 	},
