@@ -15,6 +15,12 @@
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*([-+\\**\\>\\|%]+|[(]?\\d+[.)]+)\\s+" }
 		]
 	},
+	{ "keys": ["ctrl+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/SmartMarkdown/Add Line with Smart List.sublime-macro"}, "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "text.html.markdown" },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*([-+\\**\\>\\|%]+|[(]?\\d+[.)]+)\\s+" }
+		]
+	},
 	{ "keys": ["enter"], "command": "smart_list", "context":
 		[
 		    { "key": "selector", "operator": "equal", "operand": "text.html.markdown" },
